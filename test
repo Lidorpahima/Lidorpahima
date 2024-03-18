@@ -1,0 +1,308 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#define H 8// the number for the size of the 1D array 
+#define N 4// the number of the columns in case 2 (question 2)
+#define M 8// the number of the rows in case 2 (question 2)
+int main()
+{
+    int helpLoop = 0;
+    char choiseC;
+    int choise;// this variable is for checking if the user choose the right number for the main menu
+    char input1[20];
+    int MyChoise;// the switch not allowing char or string values , only numbers
+    do { // a loop that check if the value "Option" is NOT 1 or 2 or 3, the program will send to the user the menu again
+        
+        do {
+            printf("MAIN MENU\n");
+            printf("What program do you choose:\n");
+            printf("1 - One-dimensional array\n");
+            printf("2 - Binary table\n");
+            printf("3 - Two-dimensional array \n");
+            //    scanf(" %c", &choise);// Allows the user to select a number for the  "Option" variable.
+            //} while (choise != '1' && choise != '2' && choise != '3'  );// do the loop until the user choose 1 or 2 or 3
+            //if (choise == '1')// the if help to define what value gonna be in the switch
+            //    MyChoise = 1;// the value that gonna be in the switch, if the "if" is happen 
+            //else if (choise == '2')// the if help to define what value gonna be in the switch
+            //    MyChoise = 2;// the value that gonna be in the switch, if the "if" is happen 
+            //else if (choise == '3')// the if help to define what value gonna be in the switch
+            //    MyChoise = 3;// the value that gonna be in the switch, if the "if" is happen 
+            fgets(input1, sizeof(input1), stdin);// Gets a value from the user and enters it to "input"
+
+
+            input1[strcspn(input1, "\n")] = '\0';// Remove newline character if present
+
+
+            choise = atoi(input1);// Convert input to integer
+        } while (choise != 1 && choise != 2 && choise != 3);
+
+            switch (choise)
+            {
+            case 1:// question 1 -  how much the numbers you choose occurred?
+                int arr[H];// the "arr" variable is the array that we wgonna use in the program for the numbers the user choose
+                int temp[H] = { 0 };// The array "temp" is an auxiliary variable for remove numbers in the array "arr" that apper more than once  
+                int count = 0;// this variable is for counting how much the number apper in the program
+                printf("you need to write %d numbers\n", H);
+                for (int i = 0; i < H; i++) {
+                    printf("please enter a number:\n");
+                    scanf("%d", &arr[i]);// allow the user to put a new value into location "i"
+                    while (arr[i] < 0) {// The program is for posittive number or zero , not for negative number 
+                        printf("The number must be posittive or zero,please enter a number:\n");
+                        scanf("%d", &arr[i]);// allow the user to put a new value into location "i"
+
+                    }
+                }
+                for (int i = 0; i < H; i++)
+                    temp[i] = arr[i];// puting the values of the array "arr" into the array "temp"
+                for (int i = 0; i < H; i++) {
+                    count = 0;// Reset for counting the amount of times the number in "i" location appears
+                    if (arr[i] != -1) {// if the number equal -1, the loop "for" continue to the next number in the array "arr"
+                        for (int j = i; j < H; j++)
+                            if (arr[i] == arr[j]) {
+                                count++;// counting how much the number appear in the array "arr"
+                                temp[j] = -1;// the porpuse of this is for remove number in the array "arr" that appear more than once by becoming the number equal -1.
+
+                            }
+                        printf("Element %d occurred %d times!\n", arr[i], count);
+                        for (int i = 0; i < H; i++)
+                            arr[i] = temp[i];// i put the valus of the array "temp" to the array "arr"
+                    }
+
+                }
+                break;
+            case 2:// Question 2- Binary Table 
+
+                int BinaryTable[M][N];// 2D array variable for the Binary Table 
+                int number;// The variable "number" is  an auxiliary variable for calculating the binary numbers
+                printf("The binary table for %d rows and %d columns\n", M, N);
+                for (int i = 0; i < M; i++) {
+                    number = i;// The variable "number" is equal "i", because the Binary Table start with zero binary number and finish with N-1 binary number
+                    for (int j = N - 1; j >= 0; j--) {
+                        BinaryTable[i][j] = number % 2;// Calculate the remainder of the number
+                        number = number / 2;// The number decreases after dividing by 2
+                    }
+                }
+                printf("  | ");
+                for (int i = 0; i < N; i++)
+                    printf("%d ", i);// print first row 
+                printf("\n-------------");
+                printf("\n");
+                for (int i = 0; i < M; i++) {
+                    printf("%d | ", i);// print first column
+                    for (int j = 0; j < N; j++)
+                        printf("%d ", BinaryTable[i][j]);// print the Binary Table
+                    printf("|");
+                    printf("\n");
+                }
+                break;
+            case 3://Two-dimensional array
+                //char choise1;// this variable is for checking if the user choose the right number for the terms of case he choose
+                int choise1=0;
+                char input[20];
+                char ChooseW;// this variable is for checking if the user choose the right number for the terms of case he choose (case 4)
+                char ChooseD;// this variable is for checking if the user choose the right number for the terms of case he choose (case 5)
+                float SumArrW[4];// it is for puting the sum of sales for every week, and in the end print the week the user wanted (case 4,8,9)
+                float avgD[6];// it is for puting the average of sales for every same 4 days in the month, and in the end print the day the user wanted (case 5)
+                float sum = 0;// to sum the sales amount for each case
+                float max = 0;// its for finding the maximum day sale per 26 days of work 
+                float min = 0;// its for finding the minimum day sale per 26 days of work 
+
+                while (choise1 != 10) {
+                    float arrTable[4][6] = { {2304.56,698.00,1873.60,970.00,2009.10,897.43},
+                                {980.30,1102.55,1003.75,2024.00,596.95,1564.25},
+                                {1324.70,93.50,873.10,1680.75,2104.65,993.45},
+                                {1707.00,234.55,2855.60,3001.58,987.75,2100.99} };
+
+
+                    printf("Please choose what do you want to do\n");
+                    printf("1 - Print table\n");
+                    printf("2 - Show sales by weeks\n");
+                    printf("3 - Show sales by days\n");
+                    printf("4 - Chose a week(1-4) to see the sum of the sales\n");
+                    printf("5 - Chose a day(1-6) to see the average sale \n");
+                    printf("6 - Best day\n");
+                    printf("7 - Worst day\n");
+                    printf("8 - Best Week\n");
+                    printf("9 - Worst Week\n");
+                    printf("10 � Exit from program\n");
+                    //scanf("  %c", &choise1);
+
+                    //// Clear input buffer if the input is out of range
+                    //if (choise1 < '1' || choise1 > '10') {
+                    //    while (getchar() != '\n'); // Clear the input buffer
+                    //    printf("Invalid input. Please enter a number between 1 and 10.\n");
+                    //}
+
+                    fgets(input, sizeof(input), stdin);// Gets a value from the user and enters it to "input"
+
+
+                    input[strcspn(input, "\n")] = '\0';// Remove newline character if present
+
+
+                    choise1 = atoi(input);// Convert input to integer
+
+                    switch (choise1)
+                    {
+                    case 1:// print table of the sales every day of the month
+                        printf(" \tSUNDAY     MONDAY    TUESDAY   WEDNESDAY  THURSDAY   FRIDAY\n");
+                        for (int i = 0; i < 4; i++) {
+                            printf("WEEK%d |", i);
+                            for (int j = 0; j < 6; j++)
+                                printf(" %.2f   ", arrTable[i][j]);
+                            printf("\n");
+                        }
+                        printf("\n\n");
+                        break;
+                    case 2: // show sales by weeks
+                        printf("LISTS OF SALES AMOUNTS BY WEEK:\n");
+                        for (int i = 0; i < 4; i++) {// rows
+                            sum = 0;// reseting the variable "sum"
+                            for (int j = 0; j < 6; j++) {//columns
+                                sum = sum + arrTable[i][j];// sum the sales of one week each
+                            }
+                            printf("The sum of sale for week %d is %.2f\n", i + 1, sum);// print the sum sales of one week each
+                        }
+                        printf("\n\n");
+                        break;
+                    case 3://Show sales by days
+                        printf("LISTS OF SALES AMOUNTS BY DAYS:\n");
+                        for (int i = 0; i < 6; i++) {// columns
+                            sum = 0;// reseting the variable "sum"
+                            for (int j = 0; j < 4; j++)// rows
+                                sum = sum + arrTable[j][i];// sum the sales of the same day in the month (like all 4 sunday )
+                            printf("The sum of sale for the day %d of the weeks in month is %.2f\n", i + 1, sum);//print the sum sales of the same day in the month (like all 4 sunday)
+                        }
+                        printf("\n\n");
+                        break;
+                    case 4: // the user chose a week(1-4) to see the sum of the sales
+                        do {
+                            printf("WHICH WEEK DO YOU WANT TO SEE HIS SALES AMOUNT:\n");
+                            scanf(" %c", &ChooseW);// allow the user to write value to variable "Choosew"
+                        } while (ChooseW != '1' && ChooseW != '2' && ChooseW != '3' && ChooseW != '4');// check if the user choose the corect value to continue, if not the loop will ask from the user to click new value
+
+                        for (int i = 0; i < 4; i++) {
+                            SumArrW[i] = 0;// reseting array
+                            for (int j = 0; j < 6; j++) {
+                                SumArrW[i] = SumArrW[i] + arrTable[i][j];// array whose function is to insert sums sales of each week
+                            }
+                        }
+                        if (ChooseW == '1')// if the user choose the number '1', the program print the sum sales of week 1
+                            printf("The sum of sale for week 1 is %.2f\n\n", SumArrW[0]);
+                        else if (ChooseW == '2')// if the user choose the number '2', the program print the sum sales of week 2
+                            printf("The sum of sale for week 2 is %.2f\n\n", SumArrW[1]);
+                        else if (ChooseW == '3')// if the user choose the number '3', the program print the sum sales of week 3
+                            printf("The sum of sale for week 3 is %.2f\n\n", SumArrW[2]);
+                        else// if the user choose the number '4', the program print the sum sales of week 4
+                            printf("The sum of sale for week 4 is %.2f\n\n", SumArrW[3]);
+                        break;
+                    case 5: // Chose a day(1-6) to see the average sale
+                        do {
+                            printf("Please enter a day of the week that you want to see the average of all four days of this month:\n ");
+                            scanf(" %c", &ChooseD);// allow the user to write value to variable "Choosew"
+                        } while (ChooseD != '1' && ChooseD != '2' && ChooseD != '3' && ChooseD != '4' && ChooseD != '5' && ChooseD != '6');// check if the user choose the corect value to continue, if not the loop will ask from the user to click new value
+
+                        for (int i = 0; i < 6; i++) {
+                            sum = 0;// reseting the variable "sum
+                            for (int j = 0; j < 4; j++)
+                                sum = sum + arrTable[j][i];// sum the sales of the same day in the month (like all 4 sunday )
+                            avgD[i] = sum / 4;
+                        }
+                        if (ChooseD == '1')// if the user choose the number '1', the program print the average sales of all the 4 SUNDAY
+                            printf("The average of all 4 SUNDAY is %.2f\n\n", avgD[0]);
+                        else if (ChooseD == '2')// if the user choose the number '2', the program print the average sales of  all the 4 MONDAY
+                            printf("The average of all 4 MONDAY is %.2f\n\n", avgD[1]);
+                        else if (ChooseD == '3')// if the user choose the number '3', the program print the average sales of  all the 4 TUESDAY
+                            printf("The average of all 4 TUESDAY is %.2f\n\n", avgD[2]);
+                        if (ChooseD == '4')// if the user choose the number '1', the program print the average sales of  all the 4 WEDNESDAY
+                            printf("The average of all 4 WEDNESDAY is %.2f\n\n", avgD[3]);
+                        else if (ChooseD == '5')// if the user choose the number '2', the program print the average sales of  all the 4 THURSDAY
+                            printf("The average of all 4 THURSDAY is %.2f\n\n", avgD[4]);
+                        else if (ChooseD == '6')// if the user choose the number '3', the program print the average sales of  all the 4  FRIDAY
+                            printf("The average of all 4 FRIDAY is %.2f\n\n", avgD[5]);
+                        break;
+                    case 6: //Best day
+                        max = 0;// reseting variable "max"
+                        for (int i = 0; i < 4; i++)// rows
+                            for (int j = 0; j < 6; j++)// columns
+                                if (arrTable[i][j] > max)// this if checking who is the biggest value in the array "arrTable"
+                                    max = arrTable[i][j];// put to variable "max", value from the array "arrTable", the "max" change until the if find the biggest value from array "arrTable"
+                        for (int i = 0; i < 4; i++)// rows
+                            for (int j = 0; j < 6; j++)//columns
+                                if (arrTable[i][j] == max)// checking whos value in array "arrTable" is equal to the variable "max", and print it
+                                    printf("The best sale is day %d in week %d, and the sale in this day is %.2f \n\n", j + 1, i + 1, max);// print maximum value from array "arrTable"
+                        break;
+                    case 7://Worst day
+                        min = arrTable[0][0];// the variable "min" is equal to the first value of array "arrTable" for checking who is the minimum value in the array
+                        for (int i = 0; i < 4; i++)//rows
+                            for (int j = 0; j < 6; j++)//columns
+                                if (arrTable[i][j] < min)// this if checking who is the smallest value in the array "arrTable"
+                                    min = arrTable[i][j];// put to variable "min", value from the array "arrTable", the "min" change until the if find the smallest value from array "arrTable"
+                        for (int i = 0; i < 4; i++)//rows
+                            for (int j = 0; j < 6; j++)//columns
+                                if (arrTable[i][j] == min)// checking whos value in array "arrTable" is equal to the variable "min", and print it
+                                    printf("The wrost sale is day %d in week %d, and the saale in this day is %.2f \n\n", j + 1, i + 1, min);// print minimum value from array "arrTable"
+                        break;
+                    case 8://Best Week
+                        for (int i = 0; i < 4; i++) {// rows
+                            SumArrW[i] = 0;// reseting the array "SumArrW"
+                            for (int j = 0; j < 6; j++)  // columns
+                                SumArrW[i] = SumArrW[i] + arrTable[i][j];// sum the sales of one week each, and put it in array
+
+                        }
+                        max = 0;// reseting the variable "max"
+                        for (int i = 0; i < 4; i++) // in the array "SunArrW" there is 4 index values of sum sales of each week  
+                            if (SumArrW[i] > max)//checking who is the biggest value of sum sales of each week
+                                max = SumArrW[i];// put in the variable "max"  the biggest value of the array "SumArrW"
+                        for (int j = 0; j < 4; j++)
+                            if (max == SumArrW[j])// checking which week there is the biggest value of sum sales
+                                printf("The best sale is in week %d, and the sale in this week is %.2f \n\n", j + 1, max);// print the biggest sum sales value and which week
+                        break;
+                    case 9: //Worst Week
+                        for (int i = 0; i < 4; i++) {// rows
+                            SumArrW[i] = 0;// reseting the array "SumArrW"
+                            for (int j = 0; j < 6; j++)  // columns
+                                SumArrW[i] = SumArrW[i] + arrTable[i][j];// sum the sales of one week each, and put it in array
+                        }
+                        min = SumArrW[0];// the variable "min" is equal to the first value of array "SumArrW" for checking who is the minimum sum
+                        for (int i = 0; i < 4; i++) // in the array "SunArrW" there is 4 index values of sum sales of each week  
+                            if (SumArrW[i] < min)//checking who is the smallest value of sum sales of each week
+                                min = SumArrW[i];// put in the variable "min"  the smallest value of the array "SumArrW"
+                        for (int i = 0; i < 4; i++)
+                            if (min == SumArrW[i])// checking which week there is the smallest value of sum sales
+                                printf("The wrost sale is in week %d, and the sale in this week is %.2f \n\n", i + 1, min);// print the biggest sum sales value and which week
+                        break;
+                    case 10:// exit the program
+                        break;
+                    default:
+                        printf("Invalid choice. Please choose again.\n");
+                        break;
+                    }
+                }
+
+
+               
+            }
+
+            printf("Do you want to return to the main menu again? (if yes, press 'y', if no, press 'n').\n");
+            scanf(" %c", &choiseC); // Allow the user to choose a letter or sign or number
+
+            if (choiseC == 'n') // User choosing 'n' - exit the program
+                break;
+
+            while (choiseC != 'y') { // Loop until the user chooses 'y'
+                printf("This is an error input! Please try again.\n");
+                printf("Do you want to return to the main menu again? (if yes, press 'y', if no, press 'n').\n");
+                scanf(" %c", &choiseC); // Allow the user to choose a letter or sign or number
+            }
+
+            
+
+    } while (choiseC == 'y');// do the loop until the user choose n or an error input
+
+
+        return 0;
+    }
+
