@@ -1,6 +1,6 @@
 # 👋 Hi! My Name Is Lidor Pahima
 
-![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white) ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white) ![Phyton]((https://os.mbed.com/media/uploads/allankliu/python.png))
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white) ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white) ![Phyton](https://os.mbed.com/media/uploads/allankliu/python.png)
 
 ## 💡 About Me
 
