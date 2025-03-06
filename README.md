@@ -14,6 +14,8 @@ Israel
 
 [LinkedIn Profile](https://www.linkedin.com/in/lidor-pahima/)
 
+[My Portfolio website](https://lidorpahima.com/)
+
 ### ✉️ Contact Me At
 
 📧 Email: [lidorpa@ac.sce.ac.il](mailto:lidorpa@ac.sce.ac.il)
