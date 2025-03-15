@@ -128,12 +128,6 @@
   <a href="https://github.com/Lidorpahima">
     <img src="https://img.shields.io/badge/GitHub-Lidorpahima-black?style=for-the-badge&logo=github" alt="GitHub">
   </a>
-</p>
-<p align="center">
-  <a href="https://x.com/LydwrPhymh85029">
-    <img src="https://img.shields.io/badge/Twitter-@LydwrPhymh85029-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter">
-  </a>
-</p>
 
 ---
 
