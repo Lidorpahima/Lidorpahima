@@ -1,5 +1,5 @@
 <h1 align="center">Hi there 👋, I'm Lidor Pahima</h1>
-<h3 align="center">Computer Science Student | Backend Enthusiast | Problem Solver</h3>
+<h3 align="center">Computer Science Student | Backend Enthusiast | Learning Fullstack Step by Step 🚀</h3>
 
 <p align="center">
   <a href="https://lidorpahima.com" target="_blank">
