@@ -57,6 +57,16 @@
 <table bordercolor="#66b2b2">
   <tr>
     <td width="50%" valign="top">
+      <h3 align="center">Ai Trip Planner</h3>
+      <p align="center">
+        <a href="https://github.com/Lidorpahima/AiTripPlanner" target="_blank">
+          <img src="https://img.shields.io/badge/GitHub-View_Repository-green?style=for-the-badge&logo=github" alt="GitHub Repo" />
+        </a>
+      </p>
+      <p><strong>Python</strong> - Django, Redis, Next.js, OpenRouter</strong> – AI itinerary builder with real-world event search, JWT auth, Redis caching, and Google Maps integration.</p>
+    </td>
+  <tr>
+    <td width="50%" valign="top">
       <h3 align="center">UPSKILL</h3>
       <p align="center">
         <a href="https://github.com/Lidorpahima/OpenSkill" target="_blank">
@@ -75,16 +85,6 @@
       <p><strong>Python</strong> - Vehicle data tool with license plate lookup, ownership history, mileage, and WhatsApp integration.</p>
     </td>
   </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3 align="center">Mini-Interpreter</h3>
-      <p align="center">
-        <a href="https://github.com/Lidorpahima/Mini-Interpret-Programming-Language" target="_blank">
-          <img src="https://img.shields.io/badge/GitHub-View_Repository-green?style=for-the-badge&logo=github" alt="GitHub Repo" />
-        </a>
-      </p>
-      <p><strong>Python</strong> - Custom language interpreter with lexical analysis, AST parsing, and runtime for arithmetic, conditions, and loops.</p>
-    </td>
     <td width="50%" valign="top">
       <h3 align="center">Portfolio Website</h3>
       <p align="center">
