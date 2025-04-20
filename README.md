@@ -75,7 +75,7 @@
           <img src="https://img.shields.io/badge/GitHub-View_Repository-green?style=for-the-badge&logo=github" alt="GitHub Repo" />
         </a>
       </p>
-      <p><strong>Python</strong> - Django, Redis, Next.js, OpenRouter – AI itinerary builder with real-world event search, JWT auth, Redis caching, and Google Maps integration.</p>
+      <p><strong>Django, Redis, Next.js,</strong> – AI itinerary builder with real-world event search, JWT auth, Redis caching, and Google Maps integration.</p>
     </td>
     <td width="50%" valign="top">
       <h3 align="center">UPSKILL</h3>
